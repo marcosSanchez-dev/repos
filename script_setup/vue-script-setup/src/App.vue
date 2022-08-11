@@ -1,6 +1,6 @@
 <template>
   <h1 @click="cambiaDatos">
-    hola mundo mi nombre es {{ name }} y tengo {{ age }} años
+    hola mundos mi nombre es {{ name }} y tengo {{ age }} años
   </h1>
 
   <MyButton
