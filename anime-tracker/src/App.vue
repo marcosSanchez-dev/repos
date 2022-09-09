@@ -8,8 +8,7 @@ const resultados_busqueda = ref([]);
 
 const mi_anime_asce = computed(() => {
   return mi_anime.value.sort((a, b) => {
-    console.log(a.title.localCompare(b.title));
-    return a.title.localCompare(b.title); //regresa un numero negativo si "a" es alfabeticamente menos que "b" o regresar un valor positivo en caso contrario
+    return a.title.localeCompare(b.title); //regresa un numero negativo si "a" es alfabeticamente menor que "b" o regresa un valor positivo en caso contrario
   });
 });
 
@@ -74,7 +73,7 @@ onMounted(() => {
         v-model="query"
         @input="handleInput"
       />
-      <button type="submit">Buscar</button>
+      <button type="submit" class="button">Buscar</button>
     </form>
 
     <div class="results" v-if="resultados_busqueda.length > 0">
@@ -90,7 +89,9 @@ onMounted(() => {
             {{ anime.synopsis.slice(0, 120) }}...
           </p>
           <span class="flex-1"></span>
-          <button @click="agregarAnime(anime)">Agregar a mis animes</button>
+          <button @click="agregarAnime(anime)" class="button">
+            Agregar a mis animes
+          </button>
         </div>
       </div>
     </div>
@@ -99,22 +100,24 @@ onMounted(() => {
       <h2>Mis animes</h2>
       <div v-for="anime in mi_anime_asce" :key="anime.mal_id" class="anime">
         <img :src="anime.image" :alt="anime.title" />
-        <h3>{{ anime.title }}</h3>
+        <h3 style="width: 60%">{{ anime.title }}</h3>
         <div class="flex-1"></div>
         <span class="episodes">
           {{ anime.episodios_vistos }} / {{ anime.episodios_totales }}
         </span>
         <button
-          v-if="anime.episodios_totales !== anime.episodios_vistos"
-          @click="increaseCounter(anime)"
-        >
-          +
-        </button>
-        <button
+          class="button"
           v-if="anime.episodios_vistos > 0"
           @click="decreaseCounter(anime)"
         >
           -
+        </button>
+        <button
+          class="button"
+          v-if="anime.episodios_totales !== anime.episodios_vistos"
+          @click="increaseCounter(anime)"
+        >
+          +
         </button>
       </div>
     </div>
