@@ -21,7 +21,8 @@ export default {
     };
   },
   created() {
-    console.log(this.$route);
+    console.log("this.route: ", this.$route); //obtienes informacion de parametros de la URL y puede ser obtenida desde this.$route.params
+    console.log("this.routeR: ", this.$router); // nevegas y cambias la direccion URL
     // console.log(this.$route.params.pokemonId);
     this.getPokemon();
   },

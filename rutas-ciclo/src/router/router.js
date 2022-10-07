@@ -19,7 +19,7 @@ const routes = [
       ),
   },
   {
-    path: "/:pokemonId",
+    path: "/:pokemonId", // Llamados "params" sirven para mandar informacion por medio de la URL
     name: "pokemon-id",
     component: () =>
       import(

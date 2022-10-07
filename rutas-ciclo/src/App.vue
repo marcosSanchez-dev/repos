@@ -1,6 +1,8 @@
 <template>
   <Navbar />
   <img alt="Vue logo" src="./assets/logo.png" />
+  <h1>links:</h1>
+  <!--  el router-view es un tipo de viewport de los componentes que quieres visualizar  -->
   <router-view></router-view>
 </template>
 
