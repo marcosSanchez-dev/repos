@@ -1,0 +1,11 @@
+@use "../utils/" as *;
+
+.about {
+  font-family: $font-helvetica-neue;
+  height: 100vh;
+}
+
+.about__wrapper {
+    height: 100%;
+    overflow: auto;
+}

@@ -1,0 +1,15 @@
+{{#>layout template='home'}}
+<div class="home">
+    <div class="home__wrapper">
+        <div class="home__gallery">
+            <div class="home__gallery__wrapper">
+                {{#each home.data.gallery}}
+                    <figure class="home__gallery__wrapper__media">
+                        <img data-src="{{image.url}}" alt="{{image.alt}}" class="home__gallery__wrapper__media__image">
+                    </figure>
+                {{/each}}
+            </div>
+        </div>
+    </div>
+</div>
+{{/layout}}

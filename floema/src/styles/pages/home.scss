@@ -1,0 +1,14 @@
+@use "../utils/" as *;
+
+.home {
+    height: 100vh;
+}
+
+.home__wrapper {
+  height: 100%;
+  overflow: auto;
+}
+
+.home__content {
+  height: 100%;
+}
