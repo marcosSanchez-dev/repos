@@ -4,14 +4,111 @@ import { ref, computed } from "vue";
 const questions = ref([
   {
     question: "Que es vue?",
-    answer: 0,
-    options: [],
+    correctAnswer: 0,
+    options: ["Un framework", "una mantequilla", "una verdad"],
+    selected: null,
+  },
+  {
+    question: "Que es React?",
+    correctAnswer: 2,
+    options: [
+      "una mantequilla mala",
+      "una verdad cierta",
+      "Un framework chido",
+    ],
+    selected: null,
+  },
+  {
+    question: "Quien es Marcos?",
+    correctAnswer: 1,
+    options: ["una persona", "una dj", "Un emo"],
+    selected: null,
   },
 ]);
+
+const quizCompleted = ref(false);
+const currentQuestion = ref(0);
+const score = computed(() => {
+  let value = 0;
+  questions.value.map((q) => {
+    if (q.correctAnswer == q.selected) {
+      value++;
+    }
+  });
+  return value;
+});
+
+const getCurrentQuestion = computed(() => {
+  const question = questions.value[currentQuestion.value];
+  question["index"] = currentQuestion.value;
+  return question;
+});
+
+const SetAnswer = (e) => {
+  questions.value[currentQuestion.value].selected = e.target.value;
+  e.target.value = null;
+};
+
+const NextQuestion = (e) => {
+  if (currentQuestion.value < questions.value.length - 1) {
+    currentQuestion.value++;
+  } else {
+    quizCompleted.value = true;
+  }
+};
 </script>
 
 <template>
-  <h1>Hello world</h1>
+  <main class="app">
+    <h1>The Quiz</h1>
+    <section class="quiz" v-if="!quizCompleted">
+      <div class="quiz-info">
+        <span class="question">{{ getCurrentQuestion.question }}</span>
+        <span class="score">{{ score }}/{{ questions.length }}</span>
+      </div>
+      <div class="options">
+        <label
+          v-for="(option, index) in getCurrentQuestion.options"
+          :key="index"
+          :class="`option ${
+            getCurrentQuestion.selected == index
+              ? index == getCurrentQuestion.correctAnswer
+                ? 'correct'
+                : 'wrong'
+              : ''
+          } ${
+            getCurrentQuestion.selected != null &&
+            index != getCurrentQuestion.selected
+              ? 'disabled'
+              : ''
+          }`"
+        >
+          <input
+            type="radio"
+            :name="getCurrentQuestion.index"
+            :value="index"
+            v-model="getCurrentQuestion.selected"
+            :disabled="getCurrentQuestion.selected"
+            @change="SetAnswer"
+          />
+          <span>{{ option }}</span>
+        </label>
+      </div>
+      <button @click="NextQuestion" :disabled="!getCurrentQuestion.selected">
+        {{
+          getCurrentQuestion.index == questions.length - 1
+            ? "Finish"
+            : getCurrentQuestion.selected == null
+            ? "Select an answer"
+            : "Next Question"
+        }}
+      </button>
+    </section>
+    <section v-else>
+      <h2>You have finished the QUIZ!</h2>
+      <p>Your score is: {{ score }}/{{ questions.length }}</p>
+    </section>
+  </main>
 </template>
 
 <style scoped>
