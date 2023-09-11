@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Control OSC</title>
+  </head>
+  <body>
+    <button onclick="sendOscMessage()">Enviar mensaje OSC</button>
+
+    <script>
+      const socket = new WebSocket("ws://localhost:8080");
+
+      socket.onopen = function (event) {
+        console.log("Conectado al servidor WebSocket");
+      };
+
+      function sendOscMessage() {
+        const oscMessage = {
+          address: "/medias/Text_Generator/Font/Text/Note1",
+          args: [1.0, "someString", "hola mundo"],
+        };
+        socket.send(JSON.stringify(oscMessage));
+      }
+    </script>
+  </body>
+</html>
