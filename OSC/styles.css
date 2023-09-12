@@ -26,6 +26,7 @@ button:hover {
 
 button:active {
   transform: scale(0.95);
+  background: red;
 }
 
 /* Estilos para mobile */
