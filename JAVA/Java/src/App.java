@@ -20,12 +20,16 @@ public class App {
 
     ClasesYObjetos prueba = new ClasesYObjetos();
 
-    prueba.numero1 = 5;
+    // prueba.numero1 = 5;
 
-    System.out.println(prueba.numero1);
+    // System.out.println(prueba.numero1);
     System.out.println(prueba.Resta(5, 2));
     
     ConstructorEnClases p1 = new ConstructorEnClases("Marcos",28);
 
+
+    SettersYgetters testSetter = new SettersYgetters();
+
+    HerenciaPoo testHerencia = new HerenciaPoo(1,2);
 }
 }
