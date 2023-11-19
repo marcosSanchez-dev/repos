@@ -5,7 +5,7 @@ public class Arrays {
         Scanner lenghtArreglo = new Scanner(System.in);
 
         // int lenghtArreglo =Integer.parseInt(javax.swing.JOptionPane.showInputDialog("Dame el length del arreglo: ")) ;
-        int[] numeros = {1,2,3};
+        // int[] numeros = {1,2,3};
 
         System.out.println("Danme el nuero de largo del arreglo :\n");
 
@@ -18,9 +18,9 @@ public class Arrays {
         String[] numeroDeItems = new String[lenghtArreglo.nextInt()];
 
 
-        testArray[0] = 1;
-        testArray[1] = 2;
-        testArray[2] = 3;
+        // testArray[0] = 1;
+        // testArray[1] = 2;
+        // testArray[2] = 3;
 
         //System.out.println("testArray: " + testArray);
 
@@ -29,7 +29,6 @@ public class Arrays {
 
             String elementosArreglo = javax.swing.JOptionPane.showInputDialog("Dame los elementos que van dentro del arreglo: ");
             numeroDeItems[i] = elementosArreglo;
-            
 
         }
 
