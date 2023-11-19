@@ -2,13 +2,16 @@ public class ClasesYObjetos {
     //Atributos
    String color;
    String marca;
-   int km;
-   int numero1;
+   public int km;
+   private int numero1;
    int numero2;
 
    //Metodo
 
    /*
+    Los modificadores de acceso permiten que se visualicen los atributos y metodos de una clase que este en otro paquete distinto. 
+    Y en modo "private" los atributos solo pueden ser usados por metodos de la misma clase
+
     - public: modificador de acceso
     - void: valor de retorno (no retorna nada el tipo void)
     */

@@ -24,5 +24,8 @@ public class App {
 
     System.out.println(prueba.numero1);
     System.out.println(prueba.Resta(5, 2));
-    }
+    
+    ConstructorEnClases p1 = new ConstructorEnClases("Marcos",28);
+
+}
 }
