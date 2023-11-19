@@ -15,9 +15,14 @@ public class App {
 
      final int myNum = 5;
 
-     myNum = 10;
+    //  myNum = 10;
     
 
-    
+    ClasesYObjetos prueba = new ClasesYObjetos();
+
+    prueba.numero1 = 5;
+
+    System.out.println(prueba.numero1);
+    System.out.println(prueba.Resta(5, 2));
     }
 }
