@@ -1,5 +1,6 @@
 public class SettersYgetters {
 
+    //protected permite que el atributo sea visible para la clase misma y sus hijos
     protected int estatura;
     
     private int edad;
@@ -17,6 +18,8 @@ public class SettersYgetters {
     //constructor
     public SettersYgetters() {
         System.out.println("Soy el constructor de SettersYgetters");
+        
+        //Las variables que sean seteadas en la clase padre (asi como this.nombre), deben ser declaradas como argumentos en los constructores de las clases hijas y ser pasado hacia el metodo super.
         this.nombre = "Marcos";
         //VSCode me recomienda setear de esta forma los atributos estaticos
         SettersYgetters.frase = "Hola mundo, soy el constructor de SettersYgetters";
@@ -35,6 +38,12 @@ public class SettersYgetters {
 
     public int getEdad() {
         return this.edad;
+    }
+
+    /* Overrride method */
+
+    public void comer(){
+        System.out.println("comiendo desde la clase padre SettersYgetters");
     }
 
     public static void main(String[] args) {
