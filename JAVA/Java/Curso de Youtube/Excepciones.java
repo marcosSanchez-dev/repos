@@ -34,4 +34,33 @@ public class Excepciones {
 
         fr.close();
     }
+
+        public void leerArchivo2() {
+
+            try {
+                //el error ocurre donde llamo al metodo debido a las declaraciones throws que hice en el metodo del error.
+                leerArchivo();
+            } catch (FileNotFoundException e) {
+                e.printStackTrace();
+            } catch (IOException e) {
+                e.printStackTrace();
+            } finally {
+                System.out.println("soy un finally");
+            }
+
+
+        /* 
+        File archivo = new File("../bin/Holamundo.txt");
+
+        FileReader fr;
+        try {
+            fr = new FileReader(archivo);
+
+        //  FileNotFoundException hace la funcion de la declaracion del tipo de una clase cuando "e" es el objeto o el error
+        } catch (FileNotFoundException e) {
+            e.printStackTrace();
+        }
+        */
+
+    }
 }
